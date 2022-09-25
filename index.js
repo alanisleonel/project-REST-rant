@@ -5,7 +5,7 @@ const app = express()
 app.use('/places', require('./controllers/places'))
 
 app.get('/', (req, res) => /*arrow function*/{
-    res.send('hello world')
+    res.send('Hello World!')
 })
 // Wildcard/Catchall route
 app.get('*', (req, res) => {
