@@ -13,28 +13,40 @@ router.get('/', (req, res) => {
      res.sender('error404')
    }) 
 })
-//done
+//
 router.post('/', (req, res) => {
   db.Place.create(req.body)
-  .then()
-  .catch()
+  .then(() => {
+    res.redirect('/places')
+  })
+  .catch(err => {
+    console.log(err)
+    res.render('error404')
+  })
 })
-//done
+//
 router.get('/new', (req, res) => {
   res.render('places/new')
 })
 
-//show done
+//show
 router.get('/:id', (req, res) => {
-  res.send('GET /places/id: stub')
+  db.Place.findById(req.params.id)
+  .then(place => {
+    res.render('/places/show', { place })
+  })
+  .catch(err => {
+    console.log(err)
+    res.render('error404')
+  })
 })
 
-  //Put done
+  //Put
 router.put('/:id', (req, res) => {
   res.send('PUT /places/id: stub')
 })
 
-//delete done
+//delete
 router.delete('/:id', (req, res) => {
   res.send('DELETE /places/id: stub')
 })
