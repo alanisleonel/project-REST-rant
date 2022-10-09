@@ -79,7 +79,7 @@ function edit_form (data) {
                 </datalist>
                     </div>
                     </div>
-                    <div className="form-group">
+                    <div className="form-group col-sm-6">
                         <label htmlFor="cuisines">Cuisines</label>
                         <input className="form-control" id="cuisines" name="cuisines" value={data.place.cuisines} required/>
                     </div>
