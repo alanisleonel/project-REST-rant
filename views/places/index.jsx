@@ -18,7 +18,7 @@ function index (data) {
                     Located in {place.city}, {place.state}
                 </p>
                 <p className="text-center">
-                    Founded in {place.year}
+                    Founded in {place.founded}
                 </p>
             </div>
         )
