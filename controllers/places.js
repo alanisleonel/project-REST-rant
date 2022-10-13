@@ -20,6 +20,7 @@ router.post('/', (req, res) => {
   .then(() => {
     res.redirect('/places')
   })
+  // Error message
   .catch(err => {
     if (err && err.name == 'ValidationError') {
       let message = 'Validation Error: '
