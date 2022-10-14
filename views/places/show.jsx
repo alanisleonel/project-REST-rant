@@ -46,19 +46,19 @@ function show (data) {
                     <h2>Comments</h2>
                     {comments}
                     {/*Comments form*/}
-                    <form method="POST" action={`/places/${data.id}?_method=POST`}>
+                    <form method="POST" action={`/places/${data.place.id}/comment?_method=POST`}>
                     <div className="mb-3">
-                        <label htmlFor="formTextarea" class="form-label">Comment</label>
-                        <textarea class="form-control" id="formTextarea" rows="3"></textarea>
+                        <label htmlFor="content" className="form-label">Comment</label>
+                        <textarea className="form-control" id="content" name="content" rows="3"></textarea>
                     </div>
                     <div className="row">
                     <div className="form-group col-sm-6 col-md-4 col-lg-3">
-                        <label htmlFor="name">Author Name</label>
-                        <input className="form-control" id="name" name="name"/>
+                        <label htmlFor="author">Author Name</label>
+                        <input className="form-control" id="author" name="author"/>
                     </div>
                     <div className="form-group col-sm-6 col-md-4 col-lg-3">
-                        <label for="rating">Star Rating</label>
-                        <input type="number" className="form-control" id="rating" name="rating" step="0.5"/>
+                        <label htmlFor="stars">Star Rating</label>
+                        <input type="number" className="form-control" id="stars" name="stars" step="0.5"/>
                     </div>
                     <div className="form-group col-sm-6 col-md-4 col-lg-6">
                         <label htmlFor="rant">Rant?</label>
@@ -67,10 +67,10 @@ function show (data) {
                     </div>
                     <input className="btn btn-primary" type="submit" value="Add Comment"/>
                     </form>
-                <a href={`/places/${data.id}/edit`} className="btn btn-warning">
+                <a href={`/places/${data.place.id}/edit`} className="btn btn-warning">
                     Edit
                 </a>
-                <form method="POST" action={`/places/${data.id}?_method=DELETE`}>
+                <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}>
                     <button type="submit" className="btn btn-danger">
                         Delete
                     </button>

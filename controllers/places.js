@@ -74,7 +74,7 @@ router.get('/:id/edit', (req, res) => {
 })
 
 //Comments
-router.post('/id:/rant', (req, res) => {
+router.post('/:id/comment', (req, res) => {
   console.log(req.body)
   req.body.rant = req.body.rant ? true : false
   db.Place.findById(req.params.id)
@@ -97,10 +97,10 @@ router.post('/id:/rant', (req, res) => {
     res.render('error404')
   })
 
-res.send('GET /places/:id/rant stub')
+res.send('GET /places/:id/comment stub')
 })
 
-router.delete('/id:/rant/:rantId', (req, res) => {
+router.delete('/:id/rant/:rantId', (req, res) => {
   res.send('GET /places/:id/rant/:rantId stub')
 })
 
