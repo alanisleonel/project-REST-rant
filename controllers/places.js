@@ -50,7 +50,7 @@ router.get('/:id', (req, res) => {
   .populate('comments')
   .then(place => {
     console.log(place.comments)
-    res.render('places/show', {place})
+    res.render('places/show', { place })
   })
   .catch(err => {
     console.log('err', err)
@@ -98,7 +98,12 @@ router.get('/:id/edit', (req, res) => {
 //Comments
 router.post('/:id/comment', (req, res) => {
   console.log(req.body)
-  req.body.rant = req.body.rant ? true : false
+  if (req.body.rant) {
+    req.body.rant = true
+  }
+  else {
+    req.body.rant = false
+  }
   db.Place.findById(req.params.id)
   .then(place => {
     //Todo: Create comment
